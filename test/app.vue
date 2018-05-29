@@ -1,6 +1,20 @@
 <template>
   <div class="mod-app">
-    <VuePlupload @PostInit="PostInit" @Browse="onBrowse"></VuePlupload>
+    <VuePlupload v-if="IsShow" class="asd"
+        :url="'//m.wuage.com/finance/licence/upload'"
+        :filters="{
+          mime_types: 'image/*',
+          max_file_size: '5120kb'
+        }"
+        :headers="{
+          [csrfHeader]: csrf
+        }"
+        @Error="() => {}"
+        @FilesAdded="(up) => {up.start();}"
+        @FileUploaded="() => {}">
+        <ContentAddImg text="三证合一证件"></ContentAddImg>
+      </VuePlupload>
+    <button @click="IsShow = !IsShow">asassasas</button>
   </div>
 </template>
 
@@ -11,7 +25,9 @@
   export default {
     name: 'app',
     data () {
-      return {}
+      return {
+        IsShow: true
+      }
     },
     methods: {
       onBrowse (up) {
@@ -24,12 +40,17 @@
   }
 </script>
 
-<style>
+<style lang="">
   .mod-app {
     margin: 64px auto;
     padding: 32px;
     width: 1184px;
     min-height: 320px;
     background: #fcfcfc;
+    
   }
+  .asd {
+      width: 1184px;
+      min-height: 100px;
+    }
 </style>

@@ -7,11 +7,11 @@
  */
 
 import component from './index.vue'
-export default {
-  install (Vue, opts = {}) {
+component.install = (Vue, opts = {}) => {
     let {
       key = '$Plupload',
       tag = 'VuePlupload',
+      isRegisteredTag = true,
       Plupload
     } = opts
     let mixins = {
@@ -27,6 +27,6 @@ export default {
       component.mixins = [mixins]
     }
     // 注册标签
-    Vue.component(tag, component)
+    isRegisteredTag && Vue.component(tag, component)
   }
-}
+export default component

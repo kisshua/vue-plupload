@@ -109,7 +109,7 @@
       }
     },
     updated () {
-      this.refresh()
+      // this.refresh()
     },
     mounted () {
       // 创建 Plupload 实例
@@ -117,8 +117,10 @@
     },
     methods,
     beforeDestroy () {
-      // 销毁 plupload 
-      this.destroy()
+      // 销毁 plupload
+      try {
+        this.destroy()
+      } catch (error) {}
     }
   }
 </script>
