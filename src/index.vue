@@ -33,7 +33,7 @@
       }
       /* 实例化 plupload end */
     },
-    __getPluploadConfig (opts) {
+    __getPluploadConfig () {
       let self = this
       let tmpMap = {
         // 设置 Plupload init 配置
@@ -48,7 +48,7 @@
             tmpMap.browse_button = self.$el
             break
           default: {
-            self[key] && (tmpMap[key] = self[key])
+            self[key] !== undefined && self[key] !== null && (tmpMap[key] = self[key])
           }
         }
       })

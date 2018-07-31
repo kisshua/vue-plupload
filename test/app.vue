@@ -6,6 +6,7 @@
           mime_types: 'image/*',
           max_file_size: '5120kb'
         }"
+        :multi_selection="false"
         :headers="{
           [csrfHeader]: csrf
         }"
